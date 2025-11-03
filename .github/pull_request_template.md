@@ -12,7 +12,7 @@
 
 <!-- 请确认以下事项，并在方括号中填入 "x" 来选中 -->
 
-- [ ] 我已阅读并同意[服务条款](https://github.com/bestzwei/LibreDomains/blob/main/docs/terms-of-service.md)
+- [ ] 我已阅读并同意[服务条款](https://github.com/bestzwei/LibreDomains/blob/main/TERMS_OF_SERVICE.md)
 - [ ] 我的子域名申请格式正确
 - [ ] 我确认申请的子域名未被占用
 - [ ] 我理解我的域名配置将公开显示在此仓库中

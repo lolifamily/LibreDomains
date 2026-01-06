@@ -1,7 +1,5 @@
 {
   "description": "用来做个人网站",
-  "subdomain": "yolo",
-  "domain": "ciao.su",
   "owner": {
     "name": "Clina",
     "github": "Wolffyhtl",
@@ -12,7 +10,6 @@
       "type": "CNAME",
       "name": "@",
       "content": "f3e4a2ed.yolo.ciao.su.dnsoe3.com.",
-      "ttl": 3600,
       "proxied": false
     }
   ]

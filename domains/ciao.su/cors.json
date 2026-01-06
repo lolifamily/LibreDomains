@@ -1,4 +1,6 @@
 {
+  "description": "CORS Proxy",
+  "nocheck": true,
   "owner": {
     "name": "zwei",
     "github": "bestZwei", 
@@ -9,8 +11,7 @@
       "type": "A",
       "name": "@",
       "content": "23.145.248.96",
-      "ttl": 3600,
-      "proxied":true
+      "proxied": true
     }
   ]
 }

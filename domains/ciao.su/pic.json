@@ -10,7 +10,6 @@
       "type": "CNAME",
       "name": "@",
       "content": "b8890df4.pic.ciao.su.dnsoe3.com",
-      "ttl": 3600,
       "proxied": false
     }
   ]

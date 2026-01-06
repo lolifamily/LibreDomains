@@ -9,35 +9,30 @@
       "type": "A",
       "name": "@",
       "content": "185.199.108.153",
-      "ttl": 3600,
       "proxied": true
     },
     {
       "type": "CNAME",
       "name": "www",
       "content": "exampleuser.github.io",
-      "ttl": 3600,
       "proxied": true
     },
     {
       "type": "AAAA",
       "name": "@",
       "content": "2606:50c0:8000::153",
-      "ttl": 3600,
       "proxied": true
     },
     {
       "type": "TXT",
       "name": "@",
       "content": "v=spf1 include:_spf.google.com ~all",
-      "ttl": 3600,
       "proxied": false
     },
     {
       "type": "MX",
       "name": "@",
       "content": "alt1.aspmx.l.google.com",
-      "ttl": 3600,
       "priority": 10,
       "proxied": false
     }

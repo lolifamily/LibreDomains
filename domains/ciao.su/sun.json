@@ -10,7 +10,6 @@
       "type": "A",
       "name": "@",
       "content": "36.45.113.240",
-      "ttl": 3600,
       "proxied": false
     }
   ]

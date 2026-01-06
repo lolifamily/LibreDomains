@@ -1,0 +1,81 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ConsoleApp from '@/components/ConsoleApp';
+import { DomainRegistry } from '@/core/registry';
+import type { DomainConfig, DomainRecord, RootLevelRecord } from '@/types/schema';
+import config from '@/config';
+
+// Helper to extract value from record
+// All record types have either 'content' or 'data' - exhaustive check
+const getRecordValue = (r: DomainRecord | RootLevelRecord): string => {
+  if ('content' in r) {
+    return typeof r.content === 'object' ? JSON.stringify(r.content) : r.content;
+  }
+  // DS and SRV records use 'data' instead of 'content'
+  return JSON.stringify(r.data);
+};
+
+// Load all enabled domains and merge their configs
+// Each domain needs its own registry instance because load() clears existing data
+interface ConfigEntry {
+  subdomain: string;
+  domainName: string;
+  config: DomainConfig;
+}
+
+const allConfigs: ConfigEntry[] = [];
+
+for (const domainInfo of config.domains) {
+  if (!domainInfo.enabled) continue;
+
+  const registry = new DomainRegistry();
+  await registry.load(domainInfo.name);
+
+  for (const [subdomain, cfg] of Object.entries(registry.getConfigFiles())) {
+    allConfigs.push({
+      subdomain,
+      domainName: domainInfo.name,
+      config: cfg,
+    });
+  }
+}
+
+// Transform merged configs for the UI
+const domains = allConfigs.map(({ subdomain, domainName, config: cfg }) => {
+  const fullDomain = subdomain === '@' ? domainName : `${subdomain}.${domainName}`;
+
+  // Map records to simple object for UI display
+  const recordObj: Record<string, string> = {};
+
+  [...cfg.records, ...cfg.rootLevelRecords].forEach((r) => {
+    recordObj[r.type] ??= getRecordValue(r);
+  });
+
+  return {
+    domain: fullDomain,
+    owner: cfg.owner.name,
+    email: cfg.owner.email,
+    description: cfg.description,
+    records: recordObj,
+  };
+});
+---
+
+<Layout title="Console | LibreDomains">
+  <div class="grid">
+    <div class="s12 center-align padding-large">
+      <div class="space large"></div>
+      <h1 class="display large animate-fade-in">
+        <span class="text-gradient">Domain Console</span>
+      </h1>
+      <p class="headline animate-fade-in delay-1" style="color: var(--on-surface-variant)">
+        Explore registered domains or configure your own.
+      </p>
+      <div class="space"></div>
+    </div>
+
+    <div class="s12">
+      <ConsoleApp client:load domains={domains} />
+    </div>
+  </div>
+</Layout>

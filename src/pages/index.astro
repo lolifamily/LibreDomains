@@ -1,0 +1,114 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { InteractiveCard } from '@/components/InteractiveCard';
+---
+
+<Layout title="LibreDomains - 自由域名分发服务">
+  <div class="grid">
+    <!-- Hero Section -->
+    <div class="s12 m12 l12 center-align padding-large">
+      <div class="space large"></div>
+      <h1 class="display large animate-fade-in">
+        Your Identity,
+        {' '}
+        <span class="text-gradient">Decentralized</span>
+        .
+      </h1>
+      <p
+        class="headline animate-fade-in delay-1"
+        style="color: var(--on-surface-variant)"
+      >
+        永久免费的二级域名分发服务，为开发者而生。
+      </p>
+
+      <div class="space"></div>
+
+      <nav class="center-align animate-fade-in delay-2">
+        <a href="/generator" class="button large primary fill wave">
+          <i>rocket_launch</i>
+          <span>立即开始</span>
+        </a>
+        <a href="/query" class="button large secondary border wave">
+          <i>search</i>
+          <span>查询域名</span>
+        </a>
+      </nav>
+      <div class="space large"></div>
+    </div>
+
+    <!-- Stats Cards (Glassmorphism + Spotlight + Tilt) -->
+    <div class="s12 m4 l4 animate-fade-in delay-3">
+      <InteractiveCard client:visible className="round padding-large center-align">
+        <i class="extra primary-text">bolt</i>
+        <h5 class="primary-text">极速部署</h5>
+        <p>
+          基于 GitHub PR 自动化审核，1-5 分钟内全球生效。Cloudflare 强力驱动。
+        </p>
+      </InteractiveCard>
+    </div>
+    <div class="s12 m4 l4 animate-fade-in delay-3">
+      <InteractiveCard client:visible className="round padding-large center-align">
+        <i class="extra secondary-text">security</i>
+        <h5 class="secondary-text">安全可靠</h5>
+        <p>默认开启 DDoS 防护与 SSL 证书。代码开源，透明可信，无后门。</p>
+      </InteractiveCard>
+    </div>
+    <div class="s12 m4 l4 animate-fade-in delay-3">
+      <InteractiveCard client:visible className="round padding-large center-align">
+        <i class="extra tertiary-text">currency_yen</i>
+        <h5 class="tertiary-text">永久免费</h5>
+        <p>承诺永久免费，无隐藏费用，无广告干扰。纯粹的公益项目。</p>
+      </InteractiveCard>
+    </div>
+
+    <div class="space large"></div>
+
+    <!-- Feature Section -->
+    <div class="s12 m12 l12">
+      <h3 class="center-align text-gradient">为什么选择 LibreDomains?</h3>
+      <div class="space"></div>
+    </div>
+
+    <div class="s12 m6 l6">
+      <InteractiveCard client:visible tilt={false} className="round row">
+        <i class="large primary-text">code</i>
+        <div class="max">
+          <h5>配置即代码</h5>
+          <p>
+            所有域名记录通过 JSON 文件管理，享受 Git
+            版本控制带来的回滚与审计能力。
+          </p>
+        </div>
+      </InteractiveCard>
+    </div>
+    <div class="s12 m6 l6">
+      <InteractiveCard client:visible tilt={false} className="round row">
+        <i class="large secondary-text">dns</i>
+        <div class="max">
+          <h5>全类型支持</h5>
+          <p>支持 A, AAAA, CNAME, TXT, MX, NS, SRV 等全套 DNS 记录类型。</p>
+        </div>
+      </InteractiveCard>
+    </div>
+    <div class="s12 m6 l6">
+      <InteractiveCard client:visible tilt={false} className="round row">
+        <i class="large tertiary-text">public</i>
+        <div class="max">
+          <h5>全球 CDN</h5>
+          <p>
+            可选开启 Cloudflare 代理，为您的服务提供全球 CDN 加速与 IP 隐藏。
+          </p>
+        </div>
+      </InteractiveCard>
+    </div>
+    <div class="s12 m6 l6">
+      <InteractiveCard client:visible tilt={false} className="round row">
+        <i class="large error-text">favorite</i>
+        <div class="max">
+          <h5>社区驱动</h5>
+          <p>由开源社区维护，您可以自由贡献代码或申请新的顶级域名加入分发。</p>
+        </div>
+      </InteractiveCard>
+    </div>
+  </div>
+</Layout>

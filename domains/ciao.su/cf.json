@@ -1,5 +1,6 @@
 {
   "description": "CF优选域名",
+  "nocheck": true,
   "owner": {
     "name": "zwei",
     "github": "bestZwei", 
@@ -10,7 +11,6 @@
       "type": "CNAME",
       "name": "@",
       "content": "cf.090227.xyz",
-      "ttl": 3600,
       "proxied": false
     }
   ]

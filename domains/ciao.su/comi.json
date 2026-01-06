@@ -10,21 +10,18 @@
             "type": "CNAME",
             "name": "@",
             "content": "comi.pages.dev",
-            "ttl": 3600,
             "proxied": false
         },
         {
             "type": "CNAME",
             "name": "www",
             "content": "comi.pages.dev",
-            "ttl": 3600,
             "proxied": false
         },
         {
             "type": "TXT",
             "name": "@",
             "content": "google-site-verification=gtdVQ_PlisFEmDG1K6rQnWnCP233rGWzktYAtTMA74w",
-            "ttl": 3600,
             "proxied": false
         }
         

@@ -1,7 +1,5 @@
 {
   "description": "图床访问映射域名",
-  "subdomain": "coderwgb",
-  "domain": "ciao.su",
   "owner": {
     "name": "coderwgb",
     "github": "WangGuibin",
@@ -12,14 +10,12 @@
       "type": "CNAME",
       "name": "@",
       "content": "cloudflare-imgbed-4vj.pages.dev",
-      "ttl": 3600,
       "proxied": false
     },
     {
       "type": "CNAME",
       "name": "www",
       "content": "cloudflare-imgbed-4vj.pages.dev",
-      "ttl": 3600,
       "proxied": false
     }
   ]

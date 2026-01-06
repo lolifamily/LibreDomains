@@ -1,0 +1,37 @@
+---
+import '@/styles/font-inter.css';
+import '@/styles/font-jetbrains-mono.css';
+import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { LiquidBackground } from '@/components/LiquidBackground';
+import { BeerCSSInit } from '@/components/BeerCSSInit';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'LibreDomains - 自由域名分发服务' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ClientRouter />
+  </head>
+  <body class="dark">
+    <BeerCSSInit client:only="react" />
+    <LiquidBackground client:load />
+    <div class="noise-overlay"></div>
+
+    <main class="responsive" transition:animate="fade">
+      <slot />
+    </main>
+  </body>
+</html>

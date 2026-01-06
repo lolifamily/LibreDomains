@@ -1,0 +1,178 @@
+/* Custom Premium Styles */
+:root {
+  /* Cyberpunk / Neon Palette Overrides */
+  --primary: #d946ef; /* Fuchsia 500 */
+  --on-primary: #ffffff;
+  --primary-container: #4a044e;
+  --on-primary-container: #f0abfc;
+  
+  --secondary: #8b5cf6; /* Violet 500 */
+  --on-secondary: #ffffff;
+  --secondary-container: #2e1065;
+  --on-secondary-container: #ddd6fe;
+  
+  --tertiary: #0ea5e9; /* Sky 500 */
+  --on-tertiary: #ffffff;
+  
+  --surface: #0f172a; /* Slate 900 */
+  --on-surface: #e2e8f0;
+  --surface-variant: #1e293b;
+  
+  --background: #020617; /* Slate 950 */
+  --on-background: #f8fafc;
+  
+  --outline: rgba(255, 255, 255, 0.1);
+  --outline-variant: rgba(255, 255, 255, 0.05);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: 'Inter Variable', system-ui, -apple-system, sans-serif;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(15, 23, 42, 0.6) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-panel {
+  @extend .glass;
+  border-radius: 1.5rem;
+}
+
+/* Gradient Text */
+.text-gradient {
+  background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 50%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* Liquid Mesh Background */
+#liquid-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  /* Fallback gradient for reduced motion or load delay */
+  background: radial-gradient(at 0% 0%, #4a044e 0px, transparent 50%),
+              radial-gradient(at 100% 100%, #2e1065 0px, transparent 50%),
+              #020617;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* Beer CSS Overrides for "Premium" feel */
+.button.large {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 2rem;
+}
+
+.field.border {
+  border-radius: 1rem;
+  --outline: rgba(255, 255, 255, 0.15);
+}
+
+.field.border:focus-within {
+  --primary: #d946ef;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(217, 70, 239, 0.15);
+}
+
+/* Spotlight Effect */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  --mouse-x: -1000px;
+  --mouse-y: -1000px;
+  background-color: rgba(15, 23, 42, 0.6); /* Base glass color */
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    800px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.06),
+    transparent 40%
+  );
+  z-index: 1;
+}
+
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(
+    600px circle at var(--mouse-x) var(--mouse-y),
+    rgba(217, 70, 239, 0.1),
+    transparent 40%
+  );
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* Tilt Effect */
+.tilt-card {
+  transition: transform 0.1s ease-out; /* Fast transition for smooth mouse follow */
+  will-change: transform;
+}
+
+/* Noise Texture */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Card Hover Effect (Legacy - keep for non-spotlight cards) */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px -10px rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.3);
+}

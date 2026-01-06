@@ -10,7 +10,6 @@
       "type": "CNAME",
       "name": "@",
       "content": "079e1779.msc.ciao.su.dnsoe3.com",
-      "ttl": 3600,
       "proxied": false
     }
   ]

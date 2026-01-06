@@ -1,4 +1,5 @@
 {
+  "description": "A Web3 based meeting DApp",
   "owner": {
     "name": "tsengvee",
     "github": "tsengvee",
@@ -9,7 +10,6 @@
       "type": "CNAME",
       "name": "@",
       "content": "2784b4c190d9b763.vercel-dns-017.com",
-      "ttl": 3600,
       "proxied": false
     }
   ]
